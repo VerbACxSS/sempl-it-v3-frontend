@@ -5,8 +5,10 @@
     "ng": "ng",
     "serve-local": "ng serve --configuration=local --port=20010 --open",
     "serve-production": "ng serve --configuration=production --port=20010 --open",
+    "serve-staging": "ng serve --configuration=staging --port=20010 --open",
     "build-local": "ng build --configuration=local",
     "build-production": "ng build --configuration=production",
+    "build-staging": "ng build --configuration=staging",
     "test": "ng test"
   },
   "private": true,

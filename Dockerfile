@@ -18,6 +18,8 @@ COPY src src
 ARG BUILD_VERSION
 RUN if [ "$BUILD_VERSION" = "production" ]; \
     then npm run build-production; \
+    elif [ "$BUILD_VERSION" = "staging" ]; \
+    then npm run build-staging; \
     elif [ "$BUILD_VERSION" = "local" ]; \
     then npm run build-local; \
     fi
