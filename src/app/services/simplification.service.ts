@@ -13,9 +13,10 @@ export class SimplificationService {
   constructor(private http: HttpClient) {
   }
 
-  public simplify(text: string): Observable<SimplificationResult> {
+  public simplify(text: string, target: string): Observable<SimplificationResult> {
     const predictionRequest: SimplificationRequest = {
       text: text,
+      target: target
     }
     return this.http.post<SimplificationResult>(Endpoints.predictionApi, predictionRequest)
   }

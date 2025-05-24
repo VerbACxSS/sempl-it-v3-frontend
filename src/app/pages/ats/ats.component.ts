@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {
-  ItButtonDirective, ItCardComponent, ItIconComponent,
+  ItButtonDirective, ItCardComponent, ItIconComponent, ItSelectComponent,
   ItTabContainerComponent, ItTabItemComponent,
   ItTextareaComponent,
 } from 'design-angular-kit';
@@ -31,6 +31,7 @@ import {
     ItCardComponent,
     ItIconComponent,
     SimplificationInfoModalComponent,
+    ItSelectComponent,
   ]
 })
 export class AtsComponent {
@@ -39,6 +40,7 @@ export class AtsComponent {
   public simplificationForm: FormGroup;
 
   public text!: string;
+  public target!: string;
   public simplifiedText!: string;
   public simplifications!: Simplification;
   public metrics1!: TextMetrics;
@@ -49,7 +51,8 @@ export class AtsComponent {
   constructor(private alertService: AlertService,
               private simplificationService: SimplificationService) {
     this.simplificationForm = new FormGroup({
-      text: new FormControl('', [Validators.required, Validators.maxLength(3000)])
+      text: new FormControl('', [Validators.required, Validators.maxLength(4000)]),
+      target: new FormControl('', [Validators.required, Validators.pattern('common|expert')])
     });
   }
 
@@ -59,7 +62,7 @@ export class AtsComponent {
 
   public fieldLengthDescription(field: string): string {
     const fieldLength = this.simplificationForm.get(field)?.value.length;
-    return fieldLength ? `${fieldLength}/3000` : '';
+    return fieldLength ? `${fieldLength}/4000` : '';
   }
 
   public simplify() {
@@ -70,19 +73,20 @@ export class AtsComponent {
     }
 
     // Use form text
-    this.doSimplification(this.simplificationForm.value.text);
+    this.doSimplification(this.simplificationForm.value.text, this.simplificationForm.value.target);
   }
 
   public resimplify() {
     // Use last saved text
-    this.doSimplification(this.text);
+    this.doSimplification(this.text, this.target);
   }
 
-  public doSimplification(text: string) {
-    this.simplificationService.simplify(text)
+  public doSimplification(text: string, target: string) {
+    this.simplificationService.simplify(text, target)
       .subscribe({
         next: (response) => {
           this.text = text;
+          this.target = target;
           this.simplifiedText = response.simplifiedText;
           this.simplifications = response.simplificationSteps;
           this.metrics1 = response.metrics1;

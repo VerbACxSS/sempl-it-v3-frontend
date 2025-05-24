@@ -16,6 +16,14 @@
                          (keyup)="FormUtils.autogrow($event)"
                          [description]="fieldLengthDescription('text')"></it-textarea>
 
+            <it-select
+              label="Semplificazione adatta a:"
+              formControlName="target"
+              defaultOption="Seleziona un elemento">
+              <option value="expert">Esperti</option>
+              <option value="common">Utenti comuni</option>
+            </it-select>
+
             <div class="d-flex justify-content-center flex-nowrap">
               <button class="w-50 me-2" type="submit" itButton="primary" size="sm">Semplifica</button>
               <button class="w-50 ms-2" type="reset" itButton="danger" size="sm">Reset</button>
@@ -71,14 +79,16 @@
                     <h6 class="h6 text-center">Verbi passivi</h6>
                     <p class="text-justify" [innerHTML]="parseText(simplifications.verbs)"></p>
                   </it-tab-item>
-                  <it-tab-item label="Step 8">
+                  <it-tab-item label="Step 8" [active]="target == 'expert'">
                     <h6 class="h6 text-center">Riorganizzazione frase</h6>
                     <p class="text-justify" [innerHTML]="parseText(simplifications.sentence_reorganizer)"></p>
                   </it-tab-item>
-                  <it-tab-item label="Step 9" active="true">
-                    <h6 class="h6 text-center">Cittadini</h6>
-                    <p class="text-justify" [innerHTML]="parseText(simplifications.explain)"></p>
-                  </it-tab-item>
+                  @if (target == 'common') {
+                    <it-tab-item label="Step 9" [active]="target == 'common'">
+                      <h6 class="h6 text-center">Spiega e migliora</h6>
+                      <p class="text-justify" [innerHTML]="parseText(simplifications.explain)"></p>
+                    </it-tab-item>
+                  }
                 </it-tab-container>
               </it-card>
             </div>
