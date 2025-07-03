@@ -8,7 +8,6 @@ import {AlertService} from '../../services/alert.service';
 import {TextMetricsComponent} from '../../components/text-metrics/text-metrics.component';
 
 @Component({
-  standalone: true,
   selector: 'app-document-analyzer',
   styleUrl: './document-analyzer.component.scss',
   templateUrl: './document-analyzer.component.html',

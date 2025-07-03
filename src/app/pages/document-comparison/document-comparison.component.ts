@@ -8,7 +8,6 @@ import {TextComparatorComponent} from '../../components/text-comparator/text-com
 import {DiffMetrics, SimilarityMetrics, TextMetrics} from '../../model/Metrics';
 
 @Component({
-  standalone: true,
   selector: 'app-document-comparison',
   styleUrl: './document-comparison.component.scss',
   templateUrl: './document-comparison.component.html',

@@ -1,7 +1,11 @@
 import {Component} from '@angular/core';
 import {
-  ItButtonDirective, ItCardComponent, ItIconComponent, ItSelectComponent,
-  ItTabContainerComponent, ItTabItemComponent,
+  ItButtonDirective,
+  ItCardComponent,
+  ItIconComponent,
+  ItSelectComponent,
+  ItTabContainerComponent,
+  ItTabItemComponent,
   ItTextareaComponent,
 } from 'design-angular-kit';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -16,7 +20,6 @@ import {
 } from '../../components/modals/simplification-info-modal/simplification-info-modal.component';
 
 @Component({
-  standalone: true,
   selector: 'app-ats',
   styleUrl: './ats.component.scss',
   templateUrl: './ats.component.html',

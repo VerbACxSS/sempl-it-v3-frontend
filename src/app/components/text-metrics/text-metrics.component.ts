@@ -1,9 +1,5 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {
-  ItCardComponent,
-  ItCheckboxComponent,
-  ItIconComponent
-} from 'design-angular-kit';
+import {ItCardComponent, ItCheckboxComponent, ItIconComponent} from 'design-angular-kit';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TextMetrics} from '../../model/Metrics';
 import {NgxEchartsDirective} from 'ngx-echarts';
@@ -17,7 +13,9 @@ import {TypesInfoModalComponent} from '../modals/types-info-modal/types-info-mod
 import {SentencesInfoModalComponent} from '../modals/sentences-info-modal/sentences-info-modal.component';
 import {GulpeaseInfoModalComponent} from '../modals/gulpease-info-modal/gulpease-info-modal.component';
 import {TtrInfoModalComponent} from '../modals/ttr-info-modal/ttr-info-modal.component';
-import {LexicalDensityInfoModalComponent} from '../modals/lexical-density-info-modal/lexical-density-info-modal.component';
+import {
+  LexicalDensityInfoModalComponent
+} from '../modals/lexical-density-info-modal/lexical-density-info-modal.component';
 import {FleschVaccaInfoModalComponent} from '../modals/flesch-vacca-info-modal/flesch-vacca-info-modal.component';
 import {EasyTokensInfoModalComponent} from '../modals/easy-tokens-info-modal/easy-tokens-info-modal.component';
 import {LatinismsInfoModalComponent} from '../modals/latinisms-info-modal/latinisms-info-modal.component';
@@ -42,7 +40,6 @@ interface Filter {
 }
 
 @Component({
-  standalone: true,
   selector: 'app-text-metrics',
   styleUrl: './text-metrics.component.scss',
   templateUrl: './text-metrics.component.html',

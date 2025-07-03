@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {
-  ItCardComponent, ItCheckboxComponent,
+  ItCardComponent,
+  ItCheckboxComponent,
   ItIconComponent,
   ItTabContainerComponent,
   ItTabItemComponent,
@@ -18,7 +19,7 @@ import {AnnotationUtils} from '../../utils/AnnotationUtils';
 import {ActiveVerbsInfoModalComponent} from '../modals/active-verbs-info-modal/active-verbs-info-modal.component';
 import {CharactersInfoModalComponent} from '../modals/characters-info-modal/characters-info-modal.component';
 import {
-    DifficultConnectivesInfoModalComponent
+  DifficultConnectivesInfoModalComponent
 } from '../modals/difficult-connectives-info-modal/difficult-connectives-info-modal.component';
 import {EasyTokensInfoModalComponent} from '../modals/easy-tokens-info-modal/easy-tokens-info-modal.component';
 import {FleschVaccaInfoModalComponent} from '../modals/flesch-vacca-info-modal/flesch-vacca-info-modal.component';
@@ -26,12 +27,12 @@ import {GulpeaseInfoModalComponent} from '../modals/gulpease-info-modal/gulpease
 import {LatinismsInfoModalComponent} from '../modals/latinisms-info-modal/latinisms-info-modal.component';
 import {LemmasInfoModalComponent} from '../modals/lemmas-info-modal/lemmas-info-modal.component';
 import {
-    LexicalDensityInfoModalComponent
+  LexicalDensityInfoModalComponent
 } from '../modals/lexical-density-info-modal/lexical-density-info-modal.component';
 import {PassiveVerbsInfoModalComponent} from '../modals/passive-verbs-info-modal/passive-verbs-info-modal.component';
 import {PosInfoModalComponent} from '../modals/pos-info-modal/pos-info-modal.component';
 import {
-    ReflectiveVerbsInfoModalComponent
+  ReflectiveVerbsInfoModalComponent
 } from '../modals/reflective-verbs-info-modal/reflective-verbs-info-modal.component';
 import {SentencesInfoModalComponent} from '../modals/sentences-info-modal/sentences-info-modal.component';
 import {TokensInfoModalComponent} from '../modals/tokens-info-modal/tokens-info-modal.component';
@@ -52,7 +53,6 @@ interface Filter {
 }
 
 @Component({
-  standalone: true,
   selector: 'app-text-comparator',
   styleUrl: './text-comparator.component.scss',
   templateUrl: './text-comparator.component.html',
@@ -88,7 +88,7 @@ interface Filter {
     DeletedTokensInfoModalComponent,
     ItCheckboxComponent,
     FormsModule,
-  ],
+  ]
 })
 export class TextComparatorComponent implements OnChanges {
   public DEFAULT_POS_CHART_OPTION = ChartUtils.defaultPosChart();
@@ -188,7 +188,7 @@ export class TextComparatorComponent implements OnChanges {
     this.gulpeaseChartOptions = {
       series: [
         {
-          data : [
+          data: [
             {
               value: Math.round(this.metrics1.readabilityEvaluation.gulpease),
               name: 'ORIGINALE',
@@ -224,7 +224,7 @@ export class TextComparatorComponent implements OnChanges {
     this.fleschChartOptions = {
       series: [
         {
-          data : [
+          data: [
             {
               value: Math.round(this.metrics1.readabilityEvaluation.fleschVacca),
               name: 'ORIGINALE',

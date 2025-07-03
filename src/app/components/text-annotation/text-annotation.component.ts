@@ -2,7 +2,6 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Annotation} from '../../model/Annotation';
 
 @Component({
-  standalone: true,
   selector: 'app-text-annotation',
   styleUrl: './text-annotation.component.scss',
   templateUrl: './text-annotation.component.html',
@@ -33,10 +32,10 @@ export class TextAnnotationComponent implements OnChanges {
 
       this.annotations.forEach(ann => {
         if (ann.startIndex >= currentIndex && ann.startIndex < currentIndex + line.length) {
-          segments.push({ index: ann.startIndex - currentIndex, annotations: [ann] });
+          segments.push({index: ann.startIndex - currentIndex, annotations: [ann]});
         }
         if (ann.endIndex > currentIndex && ann.endIndex <= currentIndex + line.length) {
-          segments.push({ index: ann.endIndex - currentIndex, annotations: [] });
+          segments.push({index: ann.endIndex - currentIndex, annotations: []});
         }
       });
 
@@ -45,7 +44,7 @@ export class TextAnnotationComponent implements OnChanges {
       segments.forEach(segment => {
         if (lastIndex < segment.index) {
           let textSegment = line.substring(lastIndex, segment.index);
-          lineResult.push({ text: textSegment, annotations: [...activeAnnotations] });
+          lineResult.push({text: textSegment, annotations: [...activeAnnotations]});
         }
         activeAnnotations = activeAnnotations.filter(a => a.endIndex > segment.index + currentIndex).concat(segment.annotations);
         lastIndex = segment.index;
@@ -53,7 +52,7 @@ export class TextAnnotationComponent implements OnChanges {
 
       if (lastIndex < line.length) {
         let textSegment = line.substring(lastIndex);
-        lineResult.push({ text: textSegment, annotations: [...activeAnnotations] });
+        lineResult.push({text: textSegment, annotations: [...activeAnnotations]});
       }
 
       result.push(lineResult);

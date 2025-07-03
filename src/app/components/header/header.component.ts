@@ -4,7 +4,6 @@ import {ItHeaderComponent, ItNavBarItemComponent} from 'design-angular-kit';
 import {NgOptimizedImage} from '@angular/common';
 
 @Component({
-  standalone: true,
   selector: 'app-header',
   styleUrl: './header.component.scss',
   templateUrl: './header.component.html',
@@ -13,7 +12,7 @@ import {NgOptimizedImage} from '@angular/common';
     NgOptimizedImage,
     ItHeaderComponent,
     ItNavBarItemComponent
-  ],
+  ]
 })
 export class HeaderComponent {
   public MENU_ITEMS: Array<any> = [

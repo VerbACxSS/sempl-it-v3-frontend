@@ -5,7 +5,6 @@ import {ItBackToTopComponent, ItNotificationsComponent, ItSpinnerComponent} from
 import {HttpLoaderService} from './services/http-loader.service';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   styleUrl: './app.component.scss',
   templateUrl: './app.component.html',
