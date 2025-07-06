@@ -53,7 +53,6 @@ main {
     }
   }
 
-
   // Override default bootstrap chip styles
   .chip {
     min-width: 0;
@@ -64,6 +63,11 @@ main {
     .nav-tabs {
       justify-content: center;
     }
+  }
+
+  // Override default bootstrap header styles
+  .navbar-brand {
+    display: block !important;
   }
 }
 

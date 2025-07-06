@@ -3,6 +3,7 @@ import {RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './components/header/header.component';
 import {ItBackToTopComponent, ItNotificationsComponent, ItSpinnerComponent} from 'design-angular-kit';
 import {HttpLoaderService} from './services/http-loader.service';
+import {FooterComponent} from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import {HttpLoaderService} from './services/http-loader.service';
     HeaderComponent,
     ItSpinnerComponent,
     ItBackToTopComponent,
-    ItNotificationsComponent
+    ItNotificationsComponent,
+    FooterComponent
   ]
 })
 export class AppComponent implements OnInit {

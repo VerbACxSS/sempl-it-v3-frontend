@@ -62,5 +62,15 @@ it-header {
   .navbar .navbar-collapsable .navbar-nav li.nav-item a.nav-link.active {
     border-color: rgba(255, 255, 255, 1) !important;
   }
+
+  // Override header social icons
+  .social-icon {
+    padding: 0.5rem 0;
+    img {
+      width: 1.30rem;
+      height: 1.30rem;
+      margin: 0 0.5rem;
+    }
+  }
 }
 
