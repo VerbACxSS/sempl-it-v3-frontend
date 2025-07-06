@@ -52,6 +52,18 @@ main {
       z-index: 1 !important;
     }
   }
+  it-checkbox .toggles{
+    label {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      div {
+        display: none;
+      }
+    }
+  }
+
 
   // Override default bootstrap chip styles
   .chip {

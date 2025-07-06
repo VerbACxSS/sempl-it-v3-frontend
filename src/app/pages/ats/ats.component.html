@@ -24,6 +24,10 @@
               <option value="common">Utenti comuni</option>
             </it-select>
 
+            <it-checkbox label="Acconsento al salvataggio e al trattamento dei dati inseriti per i soli scopi di ricerca"
+                         formControlName="consent"
+                         toggle="true"></it-checkbox>
+
             <div class="d-flex justify-content-center flex-nowrap">
               <button class="w-50 me-2" type="submit" itButton="primary" size="sm">Semplifica</button>
               <button class="w-50 ms-2" type="reset" itButton="danger" size="sm">Reset</button>
@@ -104,6 +108,10 @@
       </div>
     </div>
   </section>
+
+  <it-callout [color]="'warning'" [label]="'Attenzione'">
+    <p>Si raccomanda di revisionare il testo semplificato prodotto da SEMPL-IT, in quanto potrebbe contenere errori o imprecisioni.</p>
+  </it-callout>
 
   <section class="section pt-0">
     <div class="section-content">

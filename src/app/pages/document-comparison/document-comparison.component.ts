@@ -1,5 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {ItButtonDirective, ItTextareaComponent} from 'design-angular-kit';
+import {ItButtonDirective, ItCheckboxComponent, ItTextareaComponent} from 'design-angular-kit';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FormUtils} from '../../utils/FormUtils';
 import {AlertService} from '../../services/alert.service';
@@ -17,6 +17,7 @@ import {SeoService} from '../../services/seo.service';
     ItTextareaComponent,
     ReactiveFormsModule,
     TextComparatorComponent,
+    ItCheckboxComponent,
   ]
 })
 export class DocumentComparisonComponent implements AfterViewInit {
@@ -36,7 +37,8 @@ export class DocumentComparisonComponent implements AfterViewInit {
               private analysisService: AnalysisService) {
     this.analyzerForm = new FormGroup({
       text1: new FormControl('', [Validators.required, Validators.maxLength(3000)]),
-      text2: new FormControl('', [Validators.required, Validators.maxLength(3000)])
+      text2: new FormControl('', [Validators.required, Validators.maxLength(3000)]),
+      consent: new FormControl(false, [Validators.required])
     });
   }
 
@@ -58,7 +60,8 @@ export class DocumentComparisonComponent implements AfterViewInit {
 
     const text1 = this.analyzerForm.value.text1;
     const text2 = this.analyzerForm.value.text2;
-    this.analysisService.comparisonAnalysis(text1, text2)
+    const consent = this.analyzerForm.value.consent;
+    this.analysisService.comparisonAnalysis(text1, text2, consent)
       .subscribe({
         next: (result) => {
           this.text1 = text1;

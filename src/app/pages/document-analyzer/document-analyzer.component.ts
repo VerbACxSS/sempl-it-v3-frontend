@@ -1,5 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {ItButtonDirective, ItTextareaComponent} from 'design-angular-kit';
+import {ItButtonDirective, ItCheckboxComponent, ItTextareaComponent} from 'design-angular-kit';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FormUtils} from '../../utils/FormUtils';
 import {AnalysisService} from '../../services/analysis.service';
@@ -17,6 +17,7 @@ import {SeoService} from '../../services/seo.service';
     ReactiveFormsModule,
     ItTextareaComponent,
     TextMetricsComponent,
+    ItCheckboxComponent,
   ]
 })
 export class DocumentAnalyzerComponent implements AfterViewInit {
@@ -32,7 +33,8 @@ export class DocumentAnalyzerComponent implements AfterViewInit {
               private alertService: AlertService,
               private analysisService: AnalysisService) {
     this.analyzerForm = new FormGroup({
-      text: new FormControl('', [Validators.required, Validators.maxLength(3000)])
+      text: new FormControl('', [Validators.required, Validators.maxLength(3000)]),
+      consent: new FormControl(false, [Validators.required])
     });
   }
 
@@ -53,7 +55,8 @@ export class DocumentAnalyzerComponent implements AfterViewInit {
     }
 
     const textToAnalyze = this.analyzerForm.value.text;
-    this.analysisService.textAnalysis(textToAnalyze)
+    const consent = this.analyzerForm.value.consent;
+    this.analysisService.textAnalysis(textToAnalyze, consent)
       .subscribe({
         next: (result) => {
           this.text = textToAnalyze;

@@ -15,17 +15,19 @@ export class AnalysisService {
   constructor(private http: HttpClient) {
   }
 
-  public textAnalysis(text: string): Observable<TextAnalysisResponse> {
+  public textAnalysis(text: string, consent: boolean): Observable<TextAnalysisResponse> {
     const textAnalysisRequest: TextAnalysisRequest = {
       text: text,
+      consent: consent
     }
     return this.http.post<TextAnalysisResponse>(Endpoints.textAnalysisApi, textAnalysisRequest)
   }
 
-  public comparisonAnalysis(text1: string, text2: string): Observable<ComparisonAnalysisResponse> {
+  public comparisonAnalysis(text1: string, text2: string, consent: boolean): Observable<ComparisonAnalysisResponse> {
     const analysisRequest: ComparisonAnalysisRequest = {
       text1: text1,
       text2: text2,
+      consent: consent
     }
     return this.http.post<ComparisonAnalysisResponse>(Endpoints.comparisonAnalysisApi, analysisRequest)
   }

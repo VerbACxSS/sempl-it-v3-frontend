@@ -16,6 +16,10 @@
                          (keyup)="FormUtils.autogrow($event)"
                          [description]="fieldLengthDescription('text')"></it-textarea>
 
+            <it-checkbox label="Acconsento al salvataggio e al trattamento dei dati inseriti per i soli scopi di ricerca"
+                         formControlName="consent"
+                         toggle="true"></it-checkbox>
+
             <div class="d-flex justify-content-center flex-nowrap">
               <button class="w-50 me-2" type="submit" itButton="primary" size="sm">Analizza</button>
               <button class="w-50 ms-2" type="reset" itButton="danger" size="sm">Reset</button>

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {
-  ItButtonDirective,
-  ItCardComponent,
+  ItButtonDirective, ItCalloutComponent,
+  ItCardComponent, ItCheckboxComponent,
   ItIconComponent,
   ItSelectComponent,
   ItTabContainerComponent,
@@ -36,6 +36,8 @@ import {SeoService} from '../../services/seo.service';
     ItIconComponent,
     SimplificationInfoModalComponent,
     ItSelectComponent,
+    ItCheckboxComponent,
+    ItCalloutComponent,
   ]
 })
 export class AtsComponent implements AfterViewInit {
@@ -45,6 +47,8 @@ export class AtsComponent implements AfterViewInit {
 
   public text!: string;
   public target!: string;
+  public consent!: boolean;
+
   public simplifiedText!: string;
   public simplifications!: Simplification;
   public metrics1!: TextMetrics;
@@ -57,7 +61,8 @@ export class AtsComponent implements AfterViewInit {
               private simplificationService: SimplificationService) {
     this.simplificationForm = new FormGroup({
       text: new FormControl('', [Validators.required, Validators.maxLength(4000)]),
-      target: new FormControl('', [Validators.required, Validators.pattern('common|expert')])
+      target: new FormControl('', [Validators.required, Validators.pattern('common|expert')]),
+      consent: new FormControl(false, [Validators.required])
     });
   }
 
@@ -81,21 +86,25 @@ export class AtsComponent implements AfterViewInit {
       return;
     }
 
-    // Use form text
-    this.doSimplification(this.simplificationForm.value.text, this.simplificationForm.value.target);
+    // Use form values
+    this.doSimplification(this.simplificationForm.value.text,
+                          this.simplificationForm.value.target,
+                          this.simplificationForm.value.consent);
   }
 
   public resimplify() {
     // Use last saved text
-    this.doSimplification(this.text, this.target);
+    this.doSimplification(this.text, this.target, this.consent);
   }
 
-  public doSimplification(text: string, target: string) {
-    this.simplificationService.simplify(text, target)
+  public doSimplification(text: string, target: string, consent: boolean) {
+    this.simplificationService.simplify(text, target, consent)
       .subscribe({
         next: (response) => {
           this.text = text;
           this.target = target;
+          this.consent = consent;
+
           this.simplifiedText = response.simplifiedText;
           this.simplifications = response.simplificationSteps;
           this.metrics1 = response.metrics1;

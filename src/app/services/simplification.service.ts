@@ -13,10 +13,11 @@ export class SimplificationService {
   constructor(private http: HttpClient) {
   }
 
-  public simplify(text: string, target: string): Observable<SimplificationResult> {
+  public simplify(text: string, target: string, consent: boolean): Observable<SimplificationResult> {
     const predictionRequest: SimplificationRequest = {
       text: text,
-      target: target
+      target: target,
+      consent: consent
     }
     return this.http.post<SimplificationResult>(Endpoints.predictionApi, predictionRequest)
   }
