@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {ItCardComponent} from 'design-angular-kit';
+import {SeoService} from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,13 @@ import {ItCardComponent} from 'design-angular-kit';
     NgOptimizedImage
   ]
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
+
+  constructor(private seoService: SeoService) {
+  }
+
+  public ngAfterViewInit(): void {
+    this.seoService.updateSeoSettings();
+  }
 
 }

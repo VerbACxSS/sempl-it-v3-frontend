@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {ItButtonDirective, ItTextareaComponent} from 'design-angular-kit';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FormUtils} from '../../utils/FormUtils';
@@ -6,6 +6,7 @@ import {AlertService} from '../../services/alert.service';
 import {AnalysisService} from '../../services/analysis.service';
 import {TextComparatorComponent} from '../../components/text-comparator/text-comparator.component';
 import {DiffMetrics, SimilarityMetrics, TextMetrics} from '../../model/Metrics';
+import {SeoService} from '../../services/seo.service';
 
 @Component({
   selector: 'app-document-comparison',
@@ -18,7 +19,7 @@ import {DiffMetrics, SimilarityMetrics, TextMetrics} from '../../model/Metrics';
     TextComparatorComponent,
   ]
 })
-export class DocumentComparisonComponent {
+export class DocumentComparisonComponent implements AfterViewInit {
   protected readonly FormUtils = FormUtils;
 
   public analyzerForm: FormGroup;
@@ -30,12 +31,17 @@ export class DocumentComparisonComponent {
   public similarity!: SimilarityMetrics;
   public diff!: DiffMetrics;
 
-  constructor(private alertService: AlertService,
+  constructor(private seoService: SeoService,
+              private alertService: AlertService,
               private analysisService: AnalysisService) {
     this.analyzerForm = new FormGroup({
       text1: new FormControl('', [Validators.required, Validators.maxLength(3000)]),
       text2: new FormControl('', [Validators.required, Validators.maxLength(3000)])
     });
+  }
+
+  public ngAfterViewInit(): void {
+    this.seoService.updateSeoSettings();
   }
 
   public fieldLengthDescription(field: string): string {

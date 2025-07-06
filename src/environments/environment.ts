@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  FRONTEND_URL: 'http://localhost:20010',
   BACKEND_URL: 'http://localhost:30010',
 };
 

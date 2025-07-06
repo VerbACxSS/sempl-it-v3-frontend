@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {
   ItButtonDirective,
   ItCardComponent,
@@ -18,6 +18,7 @@ import {Simplification} from '../../model/SimplificationResult';
 import {
   SimplificationInfoModalComponent
 } from '../../components/modals/simplification-info-modal/simplification-info-modal.component';
+import {SeoService} from '../../services/seo.service';
 
 @Component({
   selector: 'app-ats',
@@ -37,7 +38,7 @@ import {
     ItSelectComponent,
   ]
 })
-export class AtsComponent {
+export class AtsComponent implements AfterViewInit {
   protected readonly FormUtils = FormUtils;
 
   public simplificationForm: FormGroup;
@@ -51,12 +52,17 @@ export class AtsComponent {
   public similarity!: SimilarityMetrics;
   public diff!: DiffMetrics;
 
-  constructor(private alertService: AlertService,
+  constructor(private seoService: SeoService,
+              private alertService: AlertService,
               private simplificationService: SimplificationService) {
     this.simplificationForm = new FormGroup({
       text: new FormControl('', [Validators.required, Validators.maxLength(4000)]),
       target: new FormControl('', [Validators.required, Validators.pattern('common|expert')])
     });
+  }
+
+  public ngAfterViewInit(): void {
+    this.seoService.updateSeoSettings();
   }
 
   public parseText(text: string): string {

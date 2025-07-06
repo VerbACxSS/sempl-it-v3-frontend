@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {ItButtonDirective, ItTextareaComponent} from 'design-angular-kit';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FormUtils} from '../../utils/FormUtils';
@@ -6,6 +6,7 @@ import {AnalysisService} from '../../services/analysis.service';
 import {TextMetrics} from '../../model/Metrics';
 import {AlertService} from '../../services/alert.service';
 import {TextMetricsComponent} from '../../components/text-metrics/text-metrics.component';
+import {SeoService} from '../../services/seo.service';
 
 @Component({
   selector: 'app-document-analyzer',
@@ -18,7 +19,7 @@ import {TextMetricsComponent} from '../../components/text-metrics/text-metrics.c
     TextMetricsComponent,
   ]
 })
-export class DocumentAnalyzerComponent {
+export class DocumentAnalyzerComponent implements AfterViewInit {
   protected readonly FormUtils = FormUtils;
 
   public analyzerForm: FormGroup;
@@ -27,11 +28,16 @@ export class DocumentAnalyzerComponent {
   public result!: TextMetrics;
 
 
-  constructor(private alertService: AlertService,
+  constructor(private seoService: SeoService,
+              private alertService: AlertService,
               private analysisService: AnalysisService) {
     this.analyzerForm = new FormGroup({
       text: new FormControl('', [Validators.required, Validators.maxLength(3000)])
     });
+  }
+
+  public ngAfterViewInit(): void {
+    this.seoService.updateSeoSettings();
   }
 
   public fieldLengthDescription(field: string): string {

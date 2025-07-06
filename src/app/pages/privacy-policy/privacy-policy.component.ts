@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
+import {SeoService} from '../../services/seo.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -6,6 +7,13 @@ import {Component} from '@angular/core';
   templateUrl: './privacy-policy.component.html',
   imports: []
 })
-export class PrivacyPolicyComponent {
+export class PrivacyPolicyComponent implements AfterViewInit {
+
+  constructor(private seoService: SeoService) {
+  }
+
+  public ngAfterViewInit(): void {
+    this.seoService.updateSeoSettings();
+  }
 
 }
