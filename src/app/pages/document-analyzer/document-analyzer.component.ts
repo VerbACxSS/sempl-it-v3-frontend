@@ -34,7 +34,7 @@ export class DocumentAnalyzerComponent implements AfterViewInit {
               private analysisService: AnalysisService) {
     this.analyzerForm = new FormGroup({
       text: new FormControl('', [Validators.required, Validators.maxLength(3000)]),
-      consent: new FormControl(false, [Validators.required])
+      consent: new FormControl(true, [Validators.required])
     });
   }
 
