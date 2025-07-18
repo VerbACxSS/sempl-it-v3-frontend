@@ -7,7 +7,6 @@ export interface Simplification {
   connectives: string,
   expressions: string,
   sentence_splitter: string,
-  nominalizations: string,
   verbs: string,
   sentence_reorganizer: string,
   explain: string,
