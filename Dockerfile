@@ -24,14 +24,17 @@ RUN if [ "$BUILD_VERSION" = "production" ]; \
     then npm run build-local; \
     fi
 
-FROM bitnami/nginx:1.27.4 AS deploy
+FROM nginxinc/nginx-unprivileged:1.29.1-alpine3.22 AS deploy
 
 # Move into the release directory
 WORKDIR /release
 
 # Copy the build files
-COPY --from=builder /build/dist/browser /release
+COPY --from=builder --chown=nginx:nginx /build/dist/browser /release
 
 # Copy the server config
-COPY nginx.conf /opt/bitnami/nginx/conf/nginx.conf
-COPY server.conf /opt/bitnami/nginx/conf/server_blocks/server.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY server.conf /etc/nginx/conf.d/default.conf
+
+# Start NGINX in foreground
+CMD ["nginx", "-g", "daemon off;"]
