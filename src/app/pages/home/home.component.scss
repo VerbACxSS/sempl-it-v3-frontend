@@ -2,6 +2,7 @@
   padding-top: 136px;
 }
 
+
 @media (min-width: 992px) {
   .it-hero-wrapper.it-bottom-overlapping-content .it-hero-text-wrapper {
     padding-bottom: 160px;
@@ -15,10 +16,6 @@
   }
 }
 
-it-card[hasImage="true"] {
-  cursor: pointer;
-}
-
 .card-wrapper .img-responsive-wrapper {
   padding: 2em;
 
@@ -28,6 +25,9 @@ it-card[hasImage="true"] {
 }
 
 :host ::ng-deep it-card {
+  .card-body {
+    padding-top: 24px !important;
+  }
   .card {
     margin-bottom: 1em;
   }
@@ -38,4 +38,25 @@ it-card[hasImage="true"] {
 
 p:last-child {
   margin-bottom: 0;
+}
+
+.video-container {
+  width: 80%;
+  margin: 0 auto; /* centers the container */
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  overflow: hidden;
+  border-radius: 6px;
+  margin: 0;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }

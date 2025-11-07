@@ -1,0 +1,10 @@
+<it-modal footerShadow="true" closeButton="false" alignment="centered" (hideEvent)="stopVideo()">
+  <ng-container modalTitle>Tutorial</ng-container>
+
+  <p>VIDEO TUTORIAL IN ARRIVO...</p>
+  <iframe #iFrame [src]="VIDEO_URL" width="100%" height="100%" allow="autoplay" allowfullscreen></iframe>
+
+  <ng-container footer>
+    <button itButton="primary" size="sm" type="button" data-bs-dismiss="modal">Chiudi</button>
+  </ng-container>
+</it-modal>
