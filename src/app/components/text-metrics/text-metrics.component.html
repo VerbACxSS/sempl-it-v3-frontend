@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-12">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Testo</h5>
         <p class="text-justify" style="white-space: pre-wrap">{{text}}</p>
       </it-card>
@@ -17,7 +17,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Tokens <it-icon name="help-circle" size="xs" (click)="tokensInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.basicEvaluation.nTokens }}</p>
       </it-card>
@@ -25,7 +25,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Types <it-icon name="help-circle" size="xs" (click)="typesInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.basicEvaluation.nWords }}</p>
       </it-card>
@@ -33,7 +33,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Lemmi <it-icon name="help-circle" size="xs" (click)="lemmasInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.basicEvaluation.nUniqueLemmas }}</p>
       </it-card>
@@ -41,7 +41,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Caratteri <it-icon name="help-circle" size="xs" (click)="charactersInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.basicEvaluation.nCharsAll }}</p>
       </it-card>
@@ -49,7 +49,7 @@
   </div>
   <div class="col-12">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Frasi <it-icon name="help-circle" size="xs" (click)="sentencesInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.basicEvaluation.nSentences }}</p>
       </it-card>
@@ -64,7 +64,7 @@
   </div>
   <div class="col-12">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Distribuzione parti del discorso <it-icon name="help-circle" size="xs" (click)="posInfoModal.open()"></it-icon></h5>
         <div echarts [options]="DEFAULT_POS_CHART_OPTION" [merge]="barChartOptions"></div>
       </it-card>
@@ -72,7 +72,7 @@
   </div>
   <div class="col-12">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <fieldset class="text-center">
           <legend></legend>
           @for (filter of POS_FILTER; track $index) {
@@ -96,7 +96,7 @@
   </div>
   <div class="col-12 col-lg-4">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Verbi attivi <it-icon name="help-circle" size="xs" (click)="activeVerbsInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.verbsEvaluation.nActiveVerbs }}</p>
         <p class="kpi-small">{{ evalRate(textMetrics.verbsEvaluation.nActiveVerbs, textMetrics.verbsEvaluation.nVerbs) }}</p>
@@ -105,7 +105,7 @@
   </div>
   <div class="col-12 col-lg-4">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Verbi passivi <it-icon name="help-circle" size="xs" (click)="passiveVerbsInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.verbsEvaluation.nPassiveVerbs }}</p>
         <p class="kpi-small">{{ evalRate(textMetrics.verbsEvaluation.nPassiveVerbs, textMetrics.verbsEvaluation.nVerbs) }}</p>
@@ -114,7 +114,7 @@
   </div>
   <div class="col-12 col-lg-4">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Verbi riflessivi | impersonali <it-icon name="help-circle" size="xs" (click)="reflectiveVerbsInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.verbsEvaluation.nReflectiveVerbs }}</p>
         <p class="kpi-small">{{ evalRate(textMetrics.verbsEvaluation.nReflectiveVerbs, textMetrics.verbsEvaluation.nVerbs) }}</p>
@@ -123,7 +123,7 @@
   </div>
   <div class="col-12">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <fieldset class="text-center">
           <legend></legend>
           @for (filter of VERBS_FILTER; track $index) {
@@ -147,7 +147,7 @@
   </div>
   <div class="col-12">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Vocabolario di base <it-icon name="help-circle" size="xs" (click)="easyTokensInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.lexiconEvaluation.nEasyTokens }}</p>
         <p class="kpi-small">{{ evalRate(textMetrics.lexiconEvaluation.nEasyTokens, textMetrics.basicEvaluation.nTokens) }}</p>
@@ -156,7 +156,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Connettivi difficili <it-icon name="help-circle" size="xs" (click)="difficultConnectivesInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.lexiconEvaluation.nDifficultConnectives }}</p>
       </it-card>
@@ -164,7 +164,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Latinismi <it-icon name="help-circle" size="xs" (click)="latinismsInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.lexiconEvaluation.nLatinisms }}</p>
       </it-card>
@@ -172,7 +172,7 @@
   </div>
   <div class="col-12">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <fieldset class="text-center">
           <legend></legend>
           @for (filter of LEXICON_FILTER; track $index) {
@@ -196,7 +196,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Indice Gulpease <it-icon name="help-circle" size="xs" (click)="gulpeaseInfoModal.open()"></it-icon></h5>
         <div echarts [options]="DEFAULT_GULPEASE_CHART_OPTION" [merge]="gulpeaseChartOptions"></div>
       </it-card>
@@ -204,7 +204,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Indice Flesch-Vacca <it-icon name="help-circle" size="xs" (click)="fleschVaccaInfoModal.open()"></it-icon></h5>
         <div echarts [options]="DEFAULT_FLESCH_CHART_OPTION" [merge]="fleschChartOptions"></div>
       </it-card>
@@ -212,7 +212,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Token-Type Ratio (TTR) <it-icon name="help-circle" size="xs" (click)="ttrInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ textMetrics.readabilityEvaluation.ttr.toFixed(0) }} %</p>
       </it-card>
@@ -220,7 +220,7 @@
   </div>
   <div class="col-12 col-lg-6">
     <div class="card-wrapper card-space">
-      <it-card shadow="normal" borderBottom="true">
+      <it-card shadow="true" borderBottom="true">
         <h5 class="card-title h5 text-center">Densità lessicale <it-icon name="help-circle" size="xs" (click)="lexicalDensityInfoModal.open()"></it-icon></h5>
         <p class="kpi">{{ (textMetrics.readabilityEvaluation.lexicalDensity).toFixed(0) }} %</p>
       </it-card>
