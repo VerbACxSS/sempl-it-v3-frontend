@@ -16,17 +16,10 @@
   }
 }
 
-.card-wrapper .img-responsive-wrapper {
-  padding: 2em;
-
-  .img-responsive {
-    padding-bottom: 100%;
-  }
-}
-
 :host ::ng-deep it-card {
   .card-body {
     padding-top: 24px !important;
+    padding-bottom: 24px !important;
   }
   .card {
     margin-bottom: 1em;
@@ -43,6 +36,7 @@ p:last-child {
 .video-container {
   width: 80%;
   margin: 0 auto; /* centers the container */
+  margin-bottom: 1em;
 }
 .video-wrapper {
   position: relative;
