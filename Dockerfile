@@ -6,10 +6,10 @@ WORKDIR /build
 # Copy the node and angular files
 COPY angular.json angular.json
 COPY tsconfig*.json ./
-COPY package.json ./
+COPY package*.json ./
 
 # Install the dependencies
-RUN npm install
+RUN npm install --no-audit --progress=false
 
 # Copy source files
 COPY src src
