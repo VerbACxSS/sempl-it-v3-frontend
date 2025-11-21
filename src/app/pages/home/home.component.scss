@@ -33,24 +33,3 @@ p:last-child {
   margin-bottom: 0;
 }
 
-.video-container {
-  width: 80%;
-  margin: 0 auto; /* centers the container */
-  margin-bottom: 1em;
-}
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 ratio */
-  overflow: hidden;
-  border-radius: 6px;
-  margin: 0;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}

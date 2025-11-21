@@ -15,10 +15,9 @@ import {FormUtils} from '../../utils/FormUtils';
 import {TextComparatorComponent} from "../../components/text-comparator/text-comparator.component";
 import {DiffMetrics, SimilarityMetrics, TextMetrics} from "../../model/Metrics";
 import {Simplification} from '../../model/SimplificationResult';
-import {
-  SimplificationInfoModalComponent
-} from '../../components/modals/simplification-info-modal/simplification-info-modal.component';
+import {SimplificationInfoModalComponent} from '../../components/modals/simplification-info-modal/simplification-info-modal.component';
 import {SeoService} from '../../services/seo.service';
+import {SimplificationTutorialModalComponent} from '../../components/modals/simplification-tutorial-modal/simplification-tutorial-modal.component';
 
 @Component({
   selector: 'app-ats',
@@ -38,6 +37,7 @@ import {SeoService} from '../../services/seo.service';
     ItSelectComponent,
     ItCheckboxComponent,
     ItCalloutComponent,
+    SimplificationTutorialModalComponent,
   ]
 })
 export class AtsComponent implements AfterViewInit {

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {ItButtonDirective, ItCheckboxComponent, ItTextareaComponent} from 'design-angular-kit';
+import {ItButtonDirective, ItCheckboxComponent, ItIconComponent, ItTextareaComponent} from 'design-angular-kit';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FormUtils} from '../../utils/FormUtils';
 import {AnalysisService} from '../../services/analysis.service';
@@ -7,6 +7,7 @@ import {TextMetrics} from '../../model/Metrics';
 import {AlertService} from '../../services/alert.service';
 import {TextMetricsComponent} from '../../components/text-metrics/text-metrics.component';
 import {SeoService} from '../../services/seo.service';
+import {AnalysisTutorialModalComponent} from '../../components/modals/analysis-tutorial-modal/analysis-tutorial-modal.component';
 
 @Component({
   selector: 'app-document-analyzer',
@@ -18,6 +19,8 @@ import {SeoService} from '../../services/seo.service';
     ItTextareaComponent,
     TextMetricsComponent,
     ItCheckboxComponent,
+    AnalysisTutorialModalComponent,
+    ItIconComponent,
   ]
 })
 export class DocumentAnalyzerComponent implements AfterViewInit {

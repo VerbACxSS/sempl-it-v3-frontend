@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h2 class="h3 text-center mb-4" id="text-simplifier-title">Semplifica un testo amministrativo</h2>
+          <h2 class="h3 text-center mb-4" id="text-simplifier-title">Semplifica un testo amministrativo <it-icon name="help-circle" size="xs" (click)="simplificationTutorialModal.open()"></it-icon></h2>
         </div>
       </div>
 
@@ -134,3 +134,5 @@
 }
 
 <app-simplification-info-modal #simplificationInfoModal></app-simplification-info-modal>
+
+<app-simplification-tutorial-modal #simplificationTutorialModal></app-simplification-tutorial-modal>

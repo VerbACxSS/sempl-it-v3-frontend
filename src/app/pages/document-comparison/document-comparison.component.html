@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h2 class="h3 text-center mb-4" id="text-analyzer-title">Confronta due testi amministrativi</h2>
+          <h2 class="h3 text-center mb-4" id="text-analyzer-title">Confronta due testi amministrativi <it-icon name="help-circle" size="xs" (click)="comparisonTutorialModal.open()"></it-icon></h2>
         </div>
       </div>
 
@@ -55,3 +55,5 @@
     </div>
   </section>
 }
+
+<app-comparison-tutorial-modal #comparisonTutorialModal></app-comparison-tutorial-modal>

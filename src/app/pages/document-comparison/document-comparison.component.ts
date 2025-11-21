@@ -1,5 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {ItButtonDirective, ItCheckboxComponent, ItTextareaComponent} from 'design-angular-kit';
+import {ItButtonDirective, ItCheckboxComponent, ItIconComponent, ItTextareaComponent} from 'design-angular-kit';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FormUtils} from '../../utils/FormUtils';
 import {AlertService} from '../../services/alert.service';
@@ -7,6 +7,7 @@ import {AnalysisService} from '../../services/analysis.service';
 import {TextComparatorComponent} from '../../components/text-comparator/text-comparator.component';
 import {DiffMetrics, SimilarityMetrics, TextMetrics} from '../../model/Metrics';
 import {SeoService} from '../../services/seo.service';
+import {ComparisonTutorialModalComponent} from '../../components/modals/comparison-tutorial-modal/comparison-tutorial-modal.component';
 
 @Component({
   selector: 'app-document-comparison',
@@ -18,6 +19,8 @@ import {SeoService} from '../../services/seo.service';
     ReactiveFormsModule,
     TextComparatorComponent,
     ItCheckboxComponent,
+    ComparisonTutorialModalComponent,
+    ItIconComponent,
   ]
 })
 export class DocumentComparisonComponent implements AfterViewInit {
